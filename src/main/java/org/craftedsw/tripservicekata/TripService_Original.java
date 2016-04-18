@@ -23,12 +23,13 @@ public class TripService_Original {
 				}
 			}
 			if (isFriend) {
-				tripList = TripDAO.findTripsByUser(user);
+				TripDAO tripDAO = new TripDAO();
+				tripList = tripDAO.findTripsByUser(user);
 			}
 			return tripList;
 		} else {
 			throw new UserNotLoggedInException();
 		}
 	}
-	
+
 }
